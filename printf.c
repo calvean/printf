@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
-
 /**
  * check_specifiers - checks for format specifier
  * @format: format specifier
@@ -13,6 +11,8 @@ static int (*check_specifiers(const char *format))(va_list)
 	print_t p[] = {
 		{"c", print_c},
 		{"s", print_s},
+		{"d", print_d},
+		{"i", print_i},
 		{NULL, NULL}
 	};
 
