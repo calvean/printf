@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * check_specifiers - checks for format specifier
  * @format: format specifier
