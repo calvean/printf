@@ -21,6 +21,7 @@ static int (*check_specifiers(const char *format))(va_list)
 		{"X", print_X},
 		{"S", print_S},
 		{"p", print_p},
+		{"R", print_R},
 		{NULL, NULL}
 	};
 
