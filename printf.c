@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * check_specifiers - checks for format specifier
  * @format: format specifier
@@ -13,6 +14,11 @@ static int (*check_specifiers(const char *format))(va_list)
 		{"s", print_s},
 		{"d", print_d},
 		{"i", print_i},
+		{"b", print_b},
+		{"u", print_u},
+		{"o", print_o},
+		{"x", print_x},
+		{"X", print_X},
 		{NULL, NULL}
 	};
 
