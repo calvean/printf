@@ -18,10 +18,7 @@ unsigned int convert_di(va_list args, buffer_t *output,
 	unsigned int ret = 0, count = 0;
 	char pad, space = ' ', neg = '-', plus = '+';
 
-	if (len == LONG)
-		d = va_arg(args, long int);
-	else
-		d = va_arg(args, int);
+	d = (len == LONG) ? va_arg(args, long int) : va_arg(args, int);
 	if (len == SHORT)
 		d = (short)d;
 	if (SPACE_FLAG == 1 && d >= 0)
@@ -39,7 +36,6 @@ unsigned int convert_di(va_list args, buffer_t *output,
 		count += (d < 0) ? 1 : 0;
 		count += (PLUS_FLAG == 1 && d >= 0) ? 1 : 0;
 		count += (SPACE_FLAG == 1 && d >= 0) ? 1 : 0;
-
 		if (ZERO_FLAG == 1 && PLUS_FLAG == 1 && d >= 0)
 			ret += _memcpy(output, &plus, 1);
 		if (ZERO_FLAG == 1 && d < 0)
@@ -53,8 +49,7 @@ unsigned int convert_di(va_list args, buffer_t *output,
 	if (ZERO_FLAG == 0 && (PLUS_FLAG == 1 && d >= 0))
 		ret += _memcpy(output, &plus, 1);
 	if (!(d == 0 && prec == 0))
-		ret += convert_sbase(output, d, "0123456789",
-				flags, 0, prec);
+		ret += convert_sbase(output, d, "0123456789", flags, 0, prec);
 	ret += print_neg_width(output, ret, flags, wid);
 	return (ret);
 }
